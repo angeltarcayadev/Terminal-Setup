@@ -14,9 +14,8 @@ $ArteAsciiGigante = @"
 "@
 
 Clear-Host
-# Corrección: Uso directo de la variable sin anidar bloques
 Write-Host $ArteAsciiGigante -ForegroundColor $ColorArteAscii
-Write-Host "`n🚀 Iniciando instalación profesional de Angel-T Dev..." -ForegroundColor Cyan
+Write-Host "`n🚀 Iniciando instalación profesional..." -ForegroundColor Cyan
 
 # 1. Configuración inicial
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force | Out-Null
@@ -29,23 +28,22 @@ $temas = @{
     "6"="angel-monokai"; "7"="angel-ocean"; "8"="angel-synthwave"; "9"="angel-gruvbox"; "10"="angel-minimal"
 }
 
-Write-Host "`n🎨 ELIGE TU TEMA DE LA BIBLIOTECA:" -ForegroundColor Green
+Write-Host "`n🎨 ELIGE TU TEMA:" -ForegroundColor Green
 foreach ($i in 1..10) { Write-Host "$i) $($temas[[string]$i])" -ForegroundColor Gray }
 $sel = Read-Host "`nSelecciona el número (1-10)"
 $temaElegido = if ($temas.ContainsKey($sel)) { $temas[$sel] } else { "angel-default" }
 
-# 3. Descarga e instalación
+# 3. Descarga
 $PowerShellDir = "$HOME\Documents\PowerShell"
 if (-not (Test-Path $PowerShellDir)) { New-Item -ItemType Directory -Force -Path $PowerShellDir | Out-Null }
-
-$url = "https://raw.githubusercontent.com/angeltarcayadev/Terminal-Setup/main/Themes/$temaElegido.omp.json"
 $rutaTema = "$PowerShellDir\theme.omp.json"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/angeltarcayadev/Terminal-Setup/main/Themes/$temaElegido.omp.json" -OutFile $rutaTema -UseBasicParsing | Out-Null
 
-Write-Host "`n📥 Descargando tema '$temaElegido'..." -ForegroundColor Yellow
-Invoke-WebRequest -Uri $url -OutFile $rutaTema -UseBasicParsing | Out-Null
+# 4. Inyección Profesional (La corrección final)
+# Guardamos el arte en un archivo temporal para que el perfil lo lea sin errores de sintaxis
+$ArtePath = "$PowerShellDir\arte.txt"
+$ArteAsciiGigante | Out-File -FilePath $ArtePath -Encoding utf8
 
-# 4. Inyección en el Perfil
-# Corrección: Simplificado para evitar conflicto de bloques
 $ProfileCode = @"
 oh-my-posh init pwsh --config '$rutaTema' | Invoke-Expression
 Import-Module Terminal-Icons
@@ -54,7 +52,7 @@ Import-Module Terminal-Icons
 function prompt {
     if (`$global:FirstRun) {
         Clear-Host
-        Write-Host '$ArteAsciiGigante' -ForegroundColor $ColorArteAscii
+        Get-Content '$ArtePath' | Write-Host -ForegroundColor $ColorArteAscii
         `$global:FirstRun = `$false
     }
     return (& 'oh-my-posh' print primary)
@@ -62,5 +60,4 @@ function prompt {
 "@
 Set-Content -Path $PROFILE -Value $ProfileCode -Encoding UTF8
 
-Write-Host "`n✅ ¡Instalación exitosa! Tu terminal ahora usa el tema: $temaElegido" -ForegroundColor Green
-Write-Host "👉 Abre una terminal nueva para ver los cambios." -ForegroundColor Cyan
+Write-Host "`n✅ ¡Instalación exitosa! Tu terminal ahora usa: $temaElegido" -ForegroundColor Green
