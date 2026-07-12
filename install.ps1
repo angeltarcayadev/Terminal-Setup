@@ -24,6 +24,15 @@ switch ($temaElegido) {
     "angel-synthwave" { $ColorPrincipal = "#FF007F"; $ColorSecundario = "#3A0CA3"; $ColorArteAscii = "Magenta" }
     "angel-gruvbox"   { $ColorPrincipal = "#FE8019"; $ColorSecundario = "#D3869B"; $ColorArteAscii = "Yellow" }
     "angel-minimal"   { $ColorPrincipal = "#D4D4D4"; $ColorSecundario = "#808080"; $ColorArteAscii = "White" }
+    "angel-catppuccin" { $ColorPrincipal = "#CBA6F7"; $ColorSecundario = "#89B4FA"; $ColorArteAscii = "Magenta" }
+    "angel-cobalt2"   { $ColorPrincipal = "#FFC600"; $ColorSecundario = "#0088FF"; $ColorArteAscii = "Yellow" }
+    "angel-night-owl" { $ColorPrincipal = "#82AAFF"; $ColorSecundario = "#C792EA"; $ColorArteAscii = "Blue" }
+    "angel-nord"      { $ColorPrincipal = "#88C0D0"; $ColorSecundario = "#5E81AC"; $ColorArteAscii = "Cyan" }
+    "angel-agnoster"  { $ColorPrincipal = "#000000"; $ColorSecundario = "#005FD7"; $ColorArteAscii = "Blue" }
+    "angel-material"  { $ColorPrincipal = "#00BCD4"; $ColorSecundario = "#FF9800"; $ColorArteAscii = "Cyan" }
+    "angel-spaceship" { $ColorPrincipal = "#D33682"; $ColorSecundario = "#268BD2"; $ColorArteAscii = "Magenta" }
+    "angel-powerlevel10k" { $ColorPrincipal = "#FFD700"; $ColorSecundario = "#005FFF"; $ColorArteAscii = "Yellow" }
+    "angel-paradox"   { $ColorPrincipal = "#00FF00"; $ColorSecundario = "#FF00FF"; $ColorArteAscii = "Green" }
     default           { $ColorPrincipal = "#FF2A2A"; $ColorSecundario = "#990000"; $ColorArteAscii = "Red" }
 }
 
