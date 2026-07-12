@@ -1,52 +1,63 @@
+# =====================================================================
+# INSTALADOR PROFESIONAL: TERMINAL SETUP - ANGEL-T DEV
+# =====================================================================
+
+$MiNombre = "Angel-T Dev"
+$ColorArteAscii = "Red"
+$ArteAsciiGigante = @"
+  "██████╗ ██╗   ██╗██████╗  █████╗ ███████╗███████╗"
+  "██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔════╝██╔════╝"
+  "██████╔╝ ╚████╔╝ ██████╔╝███████║███████╗█████╗  "
+  "██╔══██╗  ╚██╔╝  ██╔═══╝ ██╔══██║╚════██║██╔══╝  "
+  "██████╔╝   ██║   ██║     ██║  ██║███████║███████╗"
+  "╚══════╝   ╚═╝   ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝"
+"@
+
 Clear-Host
-Write-Host "██████╗ ██╗   ██╗██████╗  █████╗ ███████╗███████╗" -ForegroundColor Cyan
-Write-Host "██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔════╝██╔════╝" -ForegroundColor Cyan
-Write-Host "██████╔╝ ╚████╔╝ ██████╔╝███████║███████╗█████╗  " -ForegroundColor Cyan
-Write-Host "██╔══██╗  ╚██╔╝  ██╔═══╝ ██╔══██║╚════██║██╔══╝  " -ForegroundColor Cyan
-Write-Host "██████╔╝   ██║   ██║     ██║  ██║███████║███████╗" -ForegroundColor Cyan
-Write-Host "╚══════╝   ╚═╝   ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝" -ForegroundColor Cyan
-Write-Host "       🚀 ASISTENTE DE INSTALACIÓN ANGEL-T DEV 🚀`n" -ForegroundColor Green
+Write-Host $ArteAsciiGigante -ForegroundColor $ColorArteAscii
+Write-Host "`n🚀 Iniciando instalación profesional..." -ForegroundColor Cyan
 
-# 1. Configurar permisos y winget
-Write-Host "🔓 Configurando permisos de ejecución..." -ForegroundColor Yellow
+# 1. Configuración inicial
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force | Out-Null
+winget install JanDeDobbeleer.OhMyPosh -s winget --silent --accept-package-agreements | Out-Null
+Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser -Force -AcceptLicense | Out-Null
 
-Write-Host "📦 Instalando/Actualizando Oh My Posh..." -ForegroundColor Yellow
-winget install JanDeDobbeleer.OhMyPosh --silent --accept-source-agreements --accept-package-agreements | Out-Null
-
-# 2. Menú Interactivo de Temas
-Write-Host "`n🎨 ¡Elige tu estilo visual para la terminal!" -ForegroundColor Green
-Write-Host "1) Default      2) Cyberpunk    3) Dracula     4) Hacker      5) Tokyo" -ForegroundColor Gray
-Write-Host "6) Monokai      7) Ocean        8) Synthwave   9) Gruvbox     10) Minimal" -ForegroundColor Gray
-
-$seleccion = Read-Host "`nSelecciona un número (1-10)"
-
-# Diccionario para mapear la selección al nombre del archivo
+# 2. Biblioteca de Temas
 $temas = @{
-    "1"  = "angel-default";   "2"  = "angel-cyberpunk"; "3"  = "angel-dracula"
-    "4"  = "angel-hacker";    "5"  = "angel-tokyo";     "6"  = "angel-monokai"
-    "7"  = "angel-ocean";     "8"  = "angel-synthwave"; "9"  = "angel-gruvbox"
-    "10" = "angel-minimal"
+    "1"="angel-default"; "2"="angel-cyberpunk"; "3"="angel-dracula"; "4"="angel-hacker"; "5"="angel-tokyo"
+    "6"="angel-monokai"; "7"="angel-ocean"; "8"="angel-synthwave"; "9"="angel-gruvbox"; "10"="angel-minimal"
 }
 
-$temaElegido = $temas[$seleccion]
-if (-not $temaElegido) {
-    Write-Host "⚠️ Selección inválida. Se aplicará el tema Default por seguridad." -ForegroundColor OpenbgColor
-    $temaElegido = "angel-default"
+Write-Host "`n🎨 ELIGE TU TEMA:" -ForegroundColor Green
+foreach ($i in 1..10) { Write-Host "$i) $($temas[[string]$i])" -ForegroundColor Gray }
+$sel = Read-Host "`nSelecciona el número (1-10)"
+$temaElegido = if ($temas.ContainsKey($sel)) { $temas[$sel] } else { "angel-default" }
+
+# 3. Descarga de archivos
+$PowerShellDir = "$HOME\Documents\PowerShell"
+if (-not (Test-Path $PowerShellDir)) { New-Item -ItemType Directory -Force -Path $PowerShellDir | Out-Null }
+
+$rutaTema = "$PowerShellDir\theme.omp.json"
+$rutaArte = "$PowerShellDir\arte.txt"
+
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/angeltarcayadev/Terminal-Setup/main/Themes/$temaElegido.omp.json" -OutFile $rutaTema -UseBasicParsing | Out-Null
+$ArteAsciiGigante | Out-File -FilePath $rutaArte -Encoding utf8
+
+# 4. Inyección Profesional en el Perfil
+$ProfileCode = @"
+oh-my-posh init pwsh --config '$rutaTema' | Invoke-Expression
+Import-Module Terminal-Icons
+
+`$global:FirstRun = `$true
+function prompt {
+    if (`$global:FirstRun) {
+        Clear-Host
+        Get-Content '$rutaArte' | Write-Host -ForegroundColor $ColorArteAscii
+        `$global:FirstRun = `$false
+    }
+    return (& 'oh-my-posh' print primary)
 }
+"@
+Set-Content -Path $PROFILE -Value $ProfileCode -Encoding UTF8
 
-# 3. Descargar el tema seleccionado desde TU GitHub
-Write-Host "`n📥 Descargando tema personalizado [$temaElegido]..." -ForegroundColor Yellow
-$urlTema = "https://raw.githubusercontent.com/angeltarcayadev/Terminal-Setup/main/Themes/$temaElegido.omp.json"
-$rutaDestino = "$HOME\$temaElegido.omp.json"
-Invoke-WebRequest -Uri $urlTema -OutFile $rutaDestino | Out-Null
-
-# 4. Inyectar el tema en el perfil de PowerShell
-Write-Host "📝 Configurando tu perfil del sistema..." -ForegroundColor Yellow
-if (-not (Test-Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force | Out-Null }
-
-$lineaComando = "oh-my-posh init pwsh --config '$rutaDestino' | Invoke-Expression"
-Set-Content -Path $PROFILE -Value $lineaComando
-
-Write-Host "`n✅ ¡Instalación completada con éxito!" -ForegroundColor Green
-Write-Host "Cierra esta terminal y abre una nueva para ver tu tema de nivel profesional." -ForegroundColor Cyan
+Write-Host "`n✅ ¡Instalación exitosa! Tu terminal ahora usa: $temaElegido" -ForegroundColor Green
