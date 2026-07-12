@@ -32,9 +32,9 @@ Este proyecto se mantendrá en **desarrollo activo**. Más adelante se vendrán 
 - 🎨 **Arte ASCII Dinámico:** Un banner impactante cada vez que abres tu consola.
 - ⚡ **Instalación One-Liner:** Se instala con un solo comando, configurando permisos y dependencias.
 - 📥 **Descarga Automática de Fuentes**: Instala Nerd Fonts (FiraCode y Caskaydia) silenciosamente sin pedir permisos de administrador.
-- 🎨 **Generación Dinámica de Temas**: Todos los colores del prompt y temas se construyen dinámicamente en tiempo real para evitar fallos.
+- ☁️ **Sincronización en la Nube**: Los diseños de la terminal descargan dinámicamente sus estructuras desde la nube, asegurando calidad premium sin copias baratas.
 - 🧠 **Módulos Inteligentes:** Los indicadores de Git, Node.js y Python solo aparecen cuando estás dentro de un proyecto que los necesita.
-- 🎛️ **Altamente Personalizable:** Cambia colores, nombres y arte ASCII con facilidad.
+- 🎛️ **Altamente Personalizable:** Cambia temas y arte ASCII con facilidad.
   *(Tip: Puedes generar tu propio arte ASCII gigante en [TAAG Generator](https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow))*
 
 ---
@@ -59,9 +59,8 @@ Si quieres clonar este estilo pero usar tu propio nombre y colores:
 
 ```powershell
 $MiNombre = "Tu Nombre"
-$ColorPrincipal = "#FF2A2A"
-$ColorSecundario = "#990000"
-$ColorArteAscii = "Red"
+$temaElegido = "dracula"
+$ColorArteAscii = "Magenta"
 ```
 
 4. Ejecuta el script localmente:
