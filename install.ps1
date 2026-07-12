@@ -12,11 +12,20 @@ if (-not $MiNombre) { $MiNombre = "Angel-T Dev" }
 
 $temaElegido = $env:TERMINAL_TEMA
 if (-not $temaElegido) { $temaElegido = $env:SELECTED_THEME }
-if (-not $temaElegido) { $temaElegido = "jandedobbeleer" }
+if (-not $temaElegido) { $temaElegido = "oficial_premium" }
 
 $GlobalTemaElegido = $temaElegido
 
 switch ($temaElegido) {
+    "oficial_premium"  { $ColorArteAscii = "Blue" }
+    "custom_pastel"    { $ColorArteAscii = "Cyan" }
+    "custom_palette"   { $ColorArteAscii = "Yellow" }
+    "custom_minimal"   { $ColorArteAscii = "White" }
+    "custom_powerline" { $ColorArteAscii = "Blue" }
+    "custom_split"     { $ColorArteAscii = "Magenta" }
+    "custom_neon"      { $ColorArteAscii = "Cyan" }
+    "custom_aqua"      { $ColorArteAscii = "Cyan" }
+    "custom_dev"       { $ColorArteAscii = "Green" }
     "cyberpunk" { $ColorArteAscii = "Cyan" }
     "dracula"   { $ColorArteAscii = "Magenta" }
     "hacker"    { $ColorArteAscii = "Green" }
@@ -101,10 +110,10 @@ foreach ($font in $FontsToInstall) {
     }
 }
 
-# 4. Descargar Tema Oficial de Oh My Posh
-Write-Host "🎨 Descargando el tema '$GlobalTemaElegido' oficial..." -ForegroundColor Yellow
+# 4. Descargar Tema Oficial de Angel-T Dev
+Write-Host "🎨 Descargando el tema '$GlobalTemaElegido'..." -ForegroundColor Yellow
 $ThemePath = "$PowerShellDir\custom-theme.omp.json"
-$ThemeUrl = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/$GlobalTemaElegido.omp.json"
+$ThemeUrl = "https://raw.githubusercontent.com/angeltarcayadev/terminal-setup-style/main/themes/$GlobalTemaElegido.omp.json"
 
 try {
     Invoke-WebRequest -Uri $ThemeUrl -OutFile $ThemePath -UseBasicParsing
