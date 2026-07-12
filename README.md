@@ -59,9 +59,7 @@ Para que los iconos de carpetas y herramientas se rendericen correctamente, es o
 
 ## 👨‍💻 Desarrollado por
 
-**Angel-T Dev**
-
+**Angel Eduardo Tarcaya**
 ---
 
 ⭐ Si este proyecto te fue útil, considera darle una **estrella** al repositorio para apoyar el desarrollo.
-
