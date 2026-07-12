@@ -39,7 +39,7 @@ if (-not (Test-Path $PowerShellDir)) {
 
 # 2. Instalar Oh My Posh
 Write-Host "📦 Instalando motor gráfico (Oh My Posh)..." -ForegroundColor Yellow
-winget install JanDeDobbeleer.OhMyPosh -s winget --quiet
+winget install JanDeDobbeleer.OhMyPosh -s winget --silent
 
 # 3. Instalar Iconos
 Write-Host "📂 Instalando motor de iconos..." -ForegroundColor Yellow
