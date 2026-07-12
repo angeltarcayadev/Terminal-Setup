@@ -1,5 +1,9 @@
 # 🚀 Ultimate PowerShell Terminal Setup
 
+![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
+
 Transforma tu aburrida consola de Windows en una terminal moderna, rápida y con estilo hacker en menos de un minuto. Este repositorio utiliza **Oh My Posh** y **Terminal-Icons** configurados automáticamente.
 
 ## 📸 Vistazo a la Terminal
