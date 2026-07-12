@@ -20,46 +20,62 @@ Transforma tu aburrida consola de Windows en una terminal moderna, rápida y con
 Abre **PowerShell como Administrador**, copia este comando, pégalo y presiona **Enter**. ¡Eso es todo!
 
 ```powershell
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm "https://raw.githubusercontent.com/angeltarcayadev/Terminal-Setup/main/install.ps1" | iex
-````
-
----
-
-## 🛠️ Cómo Personalizarlo para ti
-
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm "[https://raw.githubusercontent.com/angeltarcayadev/Terminal-Setup/main/install.ps1](https://raw.githubusercontent.com/angeltarcayadev/Terminal-Setup/main/install.ps1)" | iex
+🛠️ Cómo Personalizarlo para ti
 Si quieres clonar este estilo pero usar tu propio nombre y colores:
 
-1. Clona o descarga este repositorio.
-2. Abre `install.ps1` en tu editor de código favorito.
-3. Modifica la **ZONA DE CONFIGURACIÓN** en las primeras líneas:
+Clona o descarga este repositorio.
 
-```powershell
+Abre install.ps1 en tu editor de código favorito.
+
+Modifica la ZONA DE CONFIGURACIÓN en las primeras líneas:
+
+PowerShell
 $MiNombre = "Tu Nombre"
 $ColorPrincipal = "#FF2A2A"
 $ColorSecundario = "#990000"
 $ColorArteAscii = "Red"
-```
+Ejecuta el script localmente:
 
-4. Ejecuta el script localmente:
-
-```powershell
+PowerShell
 .\install.ps1
-```
+🔤 Requisito: Nerd Fonts
+Para que los iconos de carpetas y herramientas se rendericen correctamente (y evitar ver cuadritos rotos), es obligatorio usar una fuente parcheada.
 
----
+Descarga e instala CaskaydiaCove Nerd Font.
 
-## 🔤 Requisito: Nerd Fonts
+Cómo configurarla correctamente:
+En Visual Studio Code:
 
-Para que los iconos de carpetas y herramientas se rendericen correctamente, es obligatorio usar una **Nerd Font**.
+Ve a Configuración (Ctrl + ,).
 
-1. Descarga e instala **CaskaydiaCove Nerd Font**.
-2. Configura **Visual Studio Code** o **Windows Terminal** para utilizar **CaskaydiaCove Nerd Font** como fuente.
+Escribe terminal font en el buscador.
 
----
+En la opción Terminal > Integrated: Font Family, escribe exactamente: 'CaskaydiaCove Nerd Font'
 
-## 👨‍💻 Desarrollado por
+Reinicia tu terminal de VS Code.
 
-**Angel Eduardo Tarcaya**
----
+En Windows Terminal:
 
-⭐ Si este proyecto te fue útil, considera darle una **estrella** al repositorio para apoyar el desarrollo.
+Abre Windows Terminal y presiona Ctrl + , para abrir la configuración.
+
+En el panel izquierdo, selecciona Valores predeterminados (bajo Perfiles) o directamente tu perfil de PowerShell.
+
+Ve a la pestaña Apariencia.
+
+En Corte de la fuente (o Font Face), selecciona CaskaydiaCove Nerd Font.
+
+Haz clic en Guardar.
+
+👨‍💻 Desarrollado por
+Angel Eduardo Tarcaya
+
+⭐ Si este proyecto te fue útil, considera darle una estrella al repositorio para apoyar el desarrollo.
+
+
+**Para actualizarlo en tu GitHub:**
+1. Ve a tu repositorio.
+2. Haz clic en el archivo `README.md`.
+3. Haz clic en el ícono del lápiz (✏️) arriba a la derecha del texto para editarlo.
+4. Borra lo que tienes, pega esta nueva versión.
+5. Haz clic en **Commit changes...**.
