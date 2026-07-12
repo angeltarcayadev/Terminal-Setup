@@ -25,6 +25,35 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force | Out-Null
 winget install JanDeDobbeleer.OhMyPosh -s winget --silent --accept-package-agreements | Out-Null
 Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser -Force -AcceptLicense | Out-Null
 
+# 1.5 Instalar Fuentes Nerd Font automáticamente
+$FontsFolder = "$env:LOCALAPPDATA\Microsoft\Windows\Fonts"
+if (-not (Test-Path $FontsFolder)) {
+    New-Item -ItemType Directory -Force -Path $FontsFolder | Out-Null
+}
+
+$RegistryPath = "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts"
+
+$FontsToInstall = @(
+    @{ Name="FiraCodeNerdFontMono-Regular.ttf"; Url="https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/FiraCodeNerdFontMono-Regular.ttf"; RegName="FiraCode Nerd Font Mono (TrueType)" },
+    @{ Name="CaskaydiaCoveNerdFont-Regular.ttf"; Url="https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/CaskaydiaCoveNerdFont-Regular.ttf"; RegName="CaskaydiaCove Nerd Font (TrueType)" }
+)
+
+Write-Host "`n📥 Descargando e instalando fuentes necesarias (esto puede tardar unos segundos)..." -ForegroundColor Cyan
+foreach ($font in $FontsToInstall) {
+    $FontPath = Join-Path $FontsFolder $font.Name
+    if (-not (Test-Path $FontPath)) {
+        try {
+            Invoke-WebRequest -Uri $font.Url -OutFile $FontPath -UseBasicParsing
+            Set-ItemProperty -Path $RegistryPath -Name $font.RegName -Value $FontPath
+            Write-Host "✅ $($font.Name) instalada con éxito." -ForegroundColor Green
+        } catch {
+            Write-Host "❌ Error al descargar $($font.Name). Por favor instálala manualmente." -ForegroundColor Red
+        }
+    } else {
+        Write-Host "✅ $($font.Name) ya está instalada." -ForegroundColor Green
+    }
+}
+
 # 2. Biblioteca de Temas
 $temas = @{
     "1"="angel-default"; "2"="angel-cyberpunk"; "3"="angel-dracula"; "4"="angel-hacker"; "5"="angel-tokyo"
