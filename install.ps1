@@ -27,6 +27,11 @@ switch ($temaElegido) {
     default           { $ColorPrincipal = "#FF2A2A"; $ColorSecundario = "#990000"; $ColorArteAscii = "Red" }
 }
 
+$envColorAscii = $env:TERMINAL_COLOR_ASCII
+if ($envColorAscii -and $envColorAscii -ne "auto") {
+    $ColorArteAscii = $envColorAscii
+}
+
 # Letras gigantes (Genera las tuyas en: https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow)
 $ArteAsciiGigante = @"
   █████╗ ███╗   ██╗ ██████╗ ███████╗██╗     ████████╗ █████╗ ██████╗  ██████╗  █████╗ ██╗   ██╗ █████╗ 

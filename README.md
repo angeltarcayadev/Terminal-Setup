@@ -35,6 +35,7 @@ Este proyecto se mantendrá en **desarrollo activo**. Más adelante se vendrán 
 - 🎨 **Generación Dinámica de Temas**: Todos los colores del prompt y temas se construyen dinámicamente en tiempo real para evitar fallos.
 - 🧠 **Módulos Inteligentes:** Los indicadores de Git, Node.js y Python solo aparecen cuando estás dentro de un proyecto que los necesita.
 - 🎛️ **Altamente Personalizable:** Cambia colores, nombres y arte ASCII con facilidad.
+  *(Tip: Puedes generar tu propio arte ASCII gigante en [TAAG Generator](https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow))*
 
 ---
 
