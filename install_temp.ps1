@@ -14,7 +14,7 @@ $ArteAsciiGigante = @"
 "@
 
 Clear-Host
-Write-Host $ArteAsciiGigante -ForegroundColor $ColorArteAscii
+Write-Host "$ArteAsciiGigante" -ForegroundColor $ColorArteAscii
 Write-Host "`n🚀 Iniciando instalación profesional de Angel-T Dev..." -ForegroundColor Cyan
 
 # 1. Configuración inicial
