@@ -1,4 +1,3 @@
-````md
 # 🚀 Ultimate PowerShell Terminal Setup
 
 Transforma tu aburrida consola de Windows en una terminal moderna, rápida y con estilo hacker en menos de un minuto. Este repositorio utiliza **Oh My Posh** y **Terminal-Icons** configurados automáticamente.
@@ -66,5 +65,3 @@ Para que los iconos de carpetas y herramientas se rendericen correctamente, es o
 
 ⭐ Si este proyecto te fue útil, considera darle una **estrella** al repositorio para apoyar el desarrollo.
 
-```
-```
