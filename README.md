@@ -2,16 +2,16 @@
 
 Transforma tu aburrida consola de Windows en una terminal moderna, rápida y con estilo hacker en menos de un minuto. Este repositorio utiliza **Oh My Posh** y **Terminal-Icons** configurados automáticamente.
 
-> *(Aquí puedes arrastrar y soltar una captura de pantalla de tu terminal)*
+> 📸 **Aquí puedes arrastrar y soltar una captura de pantalla de tu terminal.**
 
 ---
 
 ## ✨ Características
 
-- **Arte ASCII Dinámico:** Un banner impactante cada vez que abres tu consola.
-- **Instalación One-Liner:** Se instala con un solo comando, configurando permisos y dependencias.
-- **Módulos Inteligentes:** Los indicadores de Git, Node.js y Python solo aparecen cuando estás dentro de un proyecto que los necesita.
-- **Altamente Personalizable:** Cambia colores, nombres y arte ASCII con facilidad.
+- 🎨 **Arte ASCII Dinámico:** Un banner impactante cada vez que abres tu consola.
+- ⚡ **Instalación One-Liner:** Se instala con un solo comando, configurando permisos y dependencias.
+- 🧠 **Módulos Inteligentes:** Los indicadores de Git, Node.js y Python solo aparecen cuando estás dentro de un proyecto que los necesita.
+- 🎛️ **Altamente Personalizable:** Cambia colores, nombres y arte ASCII con facilidad.
 
 ---
 
@@ -20,62 +20,79 @@ Transforma tu aburrida consola de Windows en una terminal moderna, rápida y con
 Abre **PowerShell como Administrador**, copia este comando, pégalo y presiona **Enter**. ¡Eso es todo!
 
 ```powershell
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm "[https://raw.githubusercontent.com/angeltarcayadev/Terminal-Setup/main/install.ps1](https://raw.githubusercontent.com/angeltarcayadev/Terminal-Setup/main/install.ps1)" | iex
-🛠️ Cómo Personalizarlo para ti
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; irm "https://raw.githubusercontent.com/angeltarcayadev/Terminal-Setup/main/install.ps1" | iex
+```
+
+---
+
+## 🛠️ Cómo Personalizarlo para ti
+
 Si quieres clonar este estilo pero usar tu propio nombre y colores:
 
-Clona o descarga este repositorio.
+1. Clona o descarga este repositorio.
+2. Abre `install.ps1` en tu editor de código favorito.
+3. Modifica la **ZONA DE CONFIGURACIÓN** en las primeras líneas:
 
-Abre install.ps1 en tu editor de código favorito.
-
-Modifica la ZONA DE CONFIGURACIÓN en las primeras líneas:
-
-PowerShell
+```powershell
 $MiNombre = "Tu Nombre"
 $ColorPrincipal = "#FF2A2A"
 $ColorSecundario = "#990000"
 $ColorArteAscii = "Red"
-Ejecuta el script localmente:
+```
 
-PowerShell
+4. Ejecuta el script localmente:
+
+```powershell
 .\install.ps1
-🔤 Requisito: Nerd Fonts
+```
+
+---
+
+## 🔤 Requisito: Nerd Fonts
+
 Para que los iconos de carpetas y herramientas se rendericen correctamente (y evitar ver cuadritos rotos), es obligatorio usar una fuente parcheada.
 
-Descarga e instala CaskaydiaCove Nerd Font.
+### 📥 Descarga e instala **CaskaydiaCove Nerd Font**
 
-Cómo configurarla correctamente:
-En Visual Studio Code:
+---
 
-Ve a Configuración (Ctrl + ,).
+### 💻 Cómo configurarla correctamente
 
-Escribe terminal font en el buscador.
+#### En Visual Studio Code
 
-En la opción Terminal > Integrated: Font Family, escribe exactamente: 'CaskaydiaCove Nerd Font'
+1. Ve a **Configuración** (`Ctrl + ,`).
+2. Escribe **terminal font** en el buscador.
+3. En la opción **Terminal > Integrated: Font Family**, escribe exactamente:
 
-Reinicia tu terminal de VS Code.
+```text
+'CaskaydiaCove Nerd Font'
+```
 
-En Windows Terminal:
+4. Reinicia la terminal integrada de VS Code.
 
-Abre Windows Terminal y presiona Ctrl + , para abrir la configuración.
+---
 
-En el panel izquierdo, selecciona Valores predeterminados (bajo Perfiles) o directamente tu perfil de PowerShell.
+#### 🖥️ En Windows Terminal
 
-Ve a la pestaña Apariencia.
+1. Abre **Windows Terminal** y presiona `Ctrl + ,` para abrir la configuración.
+2. En el panel izquierdo, selecciona **Valores predeterminados** (bajo **Perfiles**) o directamente tu perfil de **PowerShell**.
+3. Ve a la pestaña **Apariencia**.
+4. En **Fuente** (*Font Face*), selecciona:
 
-En Corte de la fuente (o Font Face), selecciona CaskaydiaCove Nerd Font.
+```text
+CaskaydiaCove Nerd Font
+```
 
-Haz clic en Guardar.
+5. Haz clic en **Guardar**.
 
-👨‍💻 Desarrollado por
-Angel Eduardo Tarcaya
+---
 
-⭐ Si este proyecto te fue útil, considera darle una estrella al repositorio para apoyar el desarrollo.
+## 👨‍💻 Desarrollado por
 
+**Angel Eduardo Tarcaya**
 
-**Para actualizarlo en tu GitHub:**
-1. Ve a tu repositorio.
-2. Haz clic en el archivo `README.md`.
-3. Haz clic en el ícono del lápiz (✏️) arriba a la derecha del texto para editarlo.
-4. Borra lo que tienes, pega esta nueva versión.
-5. Haz clic en **Commit changes...**.
+---
+
+## ⭐ Apóyame
+
+Si este proyecto te fue útil, considera darle una **⭐ estrella** al repositorio para apoyar el desarrollo.
