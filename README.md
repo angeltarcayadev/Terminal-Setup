@@ -2,7 +2,24 @@
 
 Transforma tu aburrida consola de Windows en una terminal moderna, rápida y con estilo hacker en menos de un minuto. Este repositorio utiliza **Oh My Posh** y **Terminal-Icons** configurados automáticamente.
 
-> 📸 **Aquí puedes arrastrar y soltar una captura de pantalla de tu terminal.**
+## 📸 Vistazo a la Terminal
+
+**Banner de bienvenida y estructura de línea de comandos:**
+<img width="1851" height="655" alt="Terminal principal" src="https://github.com/user-attachments/assets/758f9b1d-58a1-45d0-83cf-fa9b6c78c5b1" />
+
+**Módulos en acción (Rutas, Git y lenguajes):**
+<img width="1851" height="584" alt="Terminal en proyecto" src="https://github.com/user-attachments/assets/f9b9adee-50f7-45a1-89f4-295af79246b7" />
+
+---
+
+## 🚀 Próximas Actualizaciones y Feedback
+
+Este proyecto se mantendrá en **desarrollo activo**. Más adelante se vendrán nuevas cosas, como esquemas de colores alternativos, soporte para más módulos de programación y optimizaciones de rendimiento.
+
+¿Tienes alguna sugerencia genial o te gustaría ver alguna función nueva? 
+* 💡 Abre un [Issue](https://github.com/angeltarcayadev/Terminal-Setup/issues) para dejar tus ideas.
+* 🛠️ ¡Todo feedback, idea o *Pull Request* de la comunidad es súper bienvenido!
+
 
 ---
 
