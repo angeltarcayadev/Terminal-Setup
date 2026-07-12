@@ -12,28 +12,30 @@ if (-not $MiNombre) { $MiNombre = "Angel-T Dev" }
 
 $temaElegido = $env:TERMINAL_TEMA
 if (-not $temaElegido) { $temaElegido = $env:SELECTED_THEME }
-if (-not $temaElegido) { $temaElegido = "angel-default" }
+if (-not $temaElegido) { $temaElegido = "jandedobbeleer" }
+
+$GlobalTemaElegido = $temaElegido
 
 switch ($temaElegido) {
-    "angel-cyberpunk" { $ColorPrincipal = "#00FF9C"; $ColorSecundario = "#008F56"; $ColorArteAscii = "Cyan" }
-    "angel-dracula"   { $ColorPrincipal = "#FF79C6"; $ColorSecundario = "#BD93F9"; $ColorArteAscii = "Magenta" }
-    "angel-hacker"    { $ColorPrincipal = "#00FF00"; $ColorSecundario = "#008000"; $ColorArteAscii = "Green" }
-    "angel-tokyo"     { $ColorPrincipal = "#7AA2F7"; $ColorSecundario = "#9ECE6A"; $ColorArteAscii = "Blue" }
-    "angel-monokai"   { $ColorPrincipal = "#FD971F"; $ColorSecundario = "#F92672"; $ColorArteAscii = "Yellow" }
-    "angel-ocean"     { $ColorPrincipal = "#00A8CC"; $ColorSecundario = "#142850"; $ColorArteAscii = "Cyan" }
-    "angel-synthwave" { $ColorPrincipal = "#FF007F"; $ColorSecundario = "#3A0CA3"; $ColorArteAscii = "Magenta" }
-    "angel-gruvbox"   { $ColorPrincipal = "#FE8019"; $ColorSecundario = "#D3869B"; $ColorArteAscii = "Yellow" }
-    "angel-minimal"   { $ColorPrincipal = "#D4D4D4"; $ColorSecundario = "#808080"; $ColorArteAscii = "White" }
-    "angel-catppuccin" { $ColorPrincipal = "#CBA6F7"; $ColorSecundario = "#89B4FA"; $ColorArteAscii = "Magenta" }
-    "angel-cobalt2"   { $ColorPrincipal = "#FFC600"; $ColorSecundario = "#0088FF"; $ColorArteAscii = "Yellow" }
-    "angel-night-owl" { $ColorPrincipal = "#82AAFF"; $ColorSecundario = "#C792EA"; $ColorArteAscii = "Blue" }
-    "angel-nord"      { $ColorPrincipal = "#88C0D0"; $ColorSecundario = "#5E81AC"; $ColorArteAscii = "Cyan" }
-    "angel-agnoster"  { $ColorPrincipal = "#000000"; $ColorSecundario = "#005FD7"; $ColorArteAscii = "Blue" }
-    "angel-material"  { $ColorPrincipal = "#00BCD4"; $ColorSecundario = "#FF9800"; $ColorArteAscii = "Cyan" }
-    "angel-spaceship" { $ColorPrincipal = "#D33682"; $ColorSecundario = "#268BD2"; $ColorArteAscii = "Magenta" }
-    "angel-powerlevel10k" { $ColorPrincipal = "#FFD700"; $ColorSecundario = "#005FFF"; $ColorArteAscii = "Yellow" }
-    "angel-paradox"   { $ColorPrincipal = "#00FF00"; $ColorSecundario = "#FF00FF"; $ColorArteAscii = "Green" }
-    default           { $ColorPrincipal = "#FF2A2A"; $ColorSecundario = "#990000"; $ColorArteAscii = "Red" }
+    "cyberpunk" { $ColorArteAscii = "Cyan" }
+    "dracula"   { $ColorArteAscii = "Magenta" }
+    "hacker"    { $ColorArteAscii = "Green" }
+    "tokyonight_storm" { $ColorArteAscii = "Blue" }
+    "monokai"   { $ColorArteAscii = "Yellow" }
+    "blue-owl"  { $ColorArteAscii = "Cyan" }
+    "synthwave" { $ColorArteAscii = "Magenta" }
+    "gruvbox"   { $ColorArteAscii = "Yellow" }
+    "minimal"   { $ColorArteAscii = "White" }
+    "catppuccin_mocha" { $ColorArteAscii = "Magenta" }
+    "cobalt2"   { $ColorArteAscii = "Yellow" }
+    "night-owl" { $ColorArteAscii = "Blue" }
+    "nord"      { $ColorArteAscii = "Cyan" }
+    "agnoster"  { $ColorArteAscii = "Blue" }
+    "material"  { $ColorArteAscii = "Cyan" }
+    "spaceship" { $ColorArteAscii = "Magenta" }
+    "powerlevel10k_rainbow" { $ColorArteAscii = "Yellow" }
+    "paradox"   { $ColorArteAscii = "Green" }
+    default     { $ColorArteAscii = "Red" }
 }
 
 $envColorAscii = $env:TERMINAL_COLOR_ASCII
@@ -99,89 +101,17 @@ foreach ($font in $FontsToInstall) {
     }
 }
 
-# 4. Generar Tema JSON Dinámico
-Write-Host "🎨 Aplicando tus colores y nombre..." -ForegroundColor Yellow
+# 4. Descargar Tema Oficial de Oh My Posh
+Write-Host "🎨 Descargando el tema '$GlobalTemaElegido' oficial..." -ForegroundColor Yellow
 $ThemePath = "$PowerShellDir\custom-theme.omp.json"
-$ThemeJSON = @'
-{
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "blocks": [
-    {
-      "alignment": "left",
-      "segments": [
-        {
-          "background": "{COLOR_PRINCIPAL}",
-          "foreground": "#FFFFFF",
-          "leading_diamond": "\ue0b6",
-          "style": "diamond",
-          "template": " \uf415 {NOMBRE} ",
-          "trailing_diamond": "\ue0c6",
-          "type": "session"
-        },
-        {
-          "background": "{COLOR_SECUNDARIO}",
-          "foreground": "#FFFFFF",
-          "leading_diamond": "\ue0c7",
-          "options": { "style": "folder" },
-          "style": "diamond",
-          "template": " \uf07b {{ .Path }} ",
-          "trailing_diamond": "\ue0c6",
-          "type": "path"
-        },
-        {
-          "background": "#424242",
-          "foreground": "{COLOR_PRINCIPAL}",
-          "leading_diamond": "\ue0c7",
-          "options": { "branch_icon": "" },
-          "style": "diamond",
-          "template": " \uf126 {{ .HEAD }} ",
-          "trailing_diamond": "\ue0c6",
-          "type": "git"
-        },
-        {
-          "background": "#2E2E2E",
-          "foreground": "#E4F34A",
-          "leading_diamond": "\ue0c7",
-          "options": { "fetch_version": false },
-          "style": "diamond",
-          "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
-          "trailing_diamond": "\ue0c6",
-          "type": "python"
-        },
-        {
-          "background": "#2E2E2E",
-          "foreground": "#42E66C",
-          "leading_diamond": "\ue0c7",
-          "options": { "fetch_version": false },
-          "style": "diamond",
-          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
-          "trailing_diamond": "\ue0c6",
-          "type": "node"
-        },
-        {
-          "background": "#1A1A1A",
-          "foreground": "#FFFFFF",
-          "leading_diamond": "\ue0c7",
-          "options": { "time_format": "15:04" },
-          "style": "diamond",
-          "template": " \uf017 {{ .CurrentDate | date .Format }} ",
-          "trailing_diamond": "\ue0b4",
-          "type": "time"
-        }
-      ],
-      "type": "prompt"
-    }
-  ],
-  "final_space": true,
-  "version": 4
-}
-'@
+$ThemeUrl = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/$GlobalTemaElegido.omp.json"
 
-# Aplicar reemplazos
-$ThemeJSON = $ThemeJSON -replace '\{COLOR_PRINCIPAL\}', $ColorPrincipal
-$ThemeJSON = $ThemeJSON -replace '\{COLOR_SECUNDARIO\}', $ColorSecundario
-$ThemeJSON = $ThemeJSON -replace '\{NOMBRE\}', $MiNombre
-Set-Content -Path $ThemePath -Value $ThemeJSON -Encoding UTF8
+try {
+    Invoke-WebRequest -Uri $ThemeUrl -OutFile $ThemePath -UseBasicParsing
+    Write-Host "✅ Tema descargado con éxito." -ForegroundColor Green
+} catch {
+    Write-Host "❌ Error al descargar el tema $GlobalTemaElegido. Verifica tu conexión a internet." -ForegroundColor Red
+}
 
 # 5. Configurar el Perfil y Arte ASCII Dinámico
 Write-Host "📝 Inyectando perfil en el sistema..." -ForegroundColor Yellow
