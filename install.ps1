@@ -14,6 +14,7 @@ $ArteAsciiGigante = @"
 "@
 
 Clear-Host
+# Corrección: Uso directo de la variable sin anidar bloques
 Write-Host $ArteAsciiGigante -ForegroundColor $ColorArteAscii
 Write-Host "`n🚀 Iniciando instalación profesional de Angel-T Dev..." -ForegroundColor Cyan
 
@@ -44,16 +45,16 @@ Write-Host "`n📥 Descargando tema '$temaElegido'..." -ForegroundColor Yellow
 Invoke-WebRequest -Uri $url -OutFile $rutaTema -UseBasicParsing | Out-Null
 
 # 4. Inyección en el Perfil
+# Corrección: Simplificado para evitar conflicto de bloques
 $ProfileCode = @"
 oh-my-posh init pwsh --config '$rutaTema' | Invoke-Expression
 Import-Module Terminal-Icons
 
+`$global:FirstRun = `$true
 function prompt {
-    if (`$global:FirstRun -ne `$false) {
+    if (`$global:FirstRun) {
         Clear-Host
-        Write-Host @"
-$ArteAsciiGigante
-"@ -ForegroundColor $ColorArteAscii
+        Write-Host '$ArteAsciiGigante' -ForegroundColor $ColorArteAscii
         `$global:FirstRun = `$false
     }
     return (& 'oh-my-posh' print primary)
