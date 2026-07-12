@@ -31,6 +31,8 @@ Este proyecto se mantendrá en **desarrollo activo**. Más adelante se vendrán 
 
 - 🎨 **Arte ASCII Dinámico:** Un banner impactante cada vez que abres tu consola.
 - ⚡ **Instalación One-Liner:** Se instala con un solo comando, configurando permisos y dependencias.
+- 📥 **Descarga Automática de Fuentes**: Instala Nerd Fonts (FiraCode y Caskaydia) silenciosamente sin pedir permisos de administrador.
+- 🎨 **Generación Dinámica de Temas**: Todos los colores del prompt y temas se construyen dinámicamente en tiempo real para evitar fallos.
 - 🧠 **Módulos Inteligentes:** Los indicadores de Git, Node.js y Python solo aparecen cuando estás dentro de un proyecto que los necesita.
 - 🎛️ **Altamente Personalizable:** Cambia colores, nombres y arte ASCII con facilidad.
 
@@ -69,11 +71,13 @@ $ColorArteAscii = "Red"
 
 ---
 
-## 🔤 Requisito: Nerd Fonts
+## 🔤 Fuentes Nerd Fonts (Automático)
 
-Para que los iconos de carpetas y herramientas se rendericen correctamente (y evitar ver cuadritos rotos), es obligatorio usar una fuente parcheada.
+Para que los iconos de carpetas y herramientas se rendericen correctamente, es obligatorio usar una fuente parcheada.
 
-### 📥 Descarga e instala **CaskaydiaCove Nerd Font**
+¡Buenas noticias! El script instalador ahora **descarga e instala automáticamente** las fuentes necesarias (*FiraCode Nerd Font Mono* y *CaskaydiaCove Nerd Font*) en tu perfil, sin requerir permisos de administrador.
+
+*Nota: Solo si experimentas algún fallo en la descarga automática, puedes instalarlas manualmente desde la página de [Nerd Fonts](https://www.nerdfonts.com/).*
 
 ---
 
