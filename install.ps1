@@ -95,8 +95,7 @@ if (-not (Test-Path $FontsFolder)) {
 }
 $RegistryPath = "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts"
 $FontsToInstall = @(
-    @{ Name="FiraCodeNerdFontMono-Regular.ttf"; Url="https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/FiraCodeNerdFontMono-Regular.ttf"; RegName="FiraCode Nerd Font Mono (TrueType)" },
-    @{ Name="CaskaydiaCoveNerdFont-Regular.ttf"; Url="https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/CaskaydiaCoveNerdFont-Regular.ttf"; RegName="CaskaydiaCove Nerd Font (TrueType)" }
+    @{ Name="FiraCodeNerdFontMono-Regular.ttf"; Url="https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/FiraCodeNerdFontMono-Regular.ttf"; RegName="FiraCode Nerd Font Mono (TrueType)" }
 )
 foreach ($font in $FontsToInstall) {
     $FontPath = Join-Path $FontsFolder $font.Name

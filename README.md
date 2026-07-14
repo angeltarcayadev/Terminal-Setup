@@ -75,38 +75,26 @@ $ColorArteAscii = "Magenta"
 
 Para que los iconos de carpetas y herramientas se rendericen correctamente, es obligatorio usar una fuente parcheada.
 
-¡Buenas noticias! El script instalador ahora **descarga e instala automáticamente** las fuentes necesarias (*FiraCode Nerd Font Mono* y *CaskaydiaCove Nerd Font*) en tu perfil, sin requerir permisos de administrador.
+¡Buenas noticias! El script instalador ahora **descarga e instala automáticamente** la fuente necesaria (*FiraCode Nerd Font Mono*) en tu perfil, sin requerir permisos de administrador.
 
 *Nota: Solo si experimentas algún fallo en la descarga automática, puedes instalarlas manualmente desde la página de [Nerd Fonts](https://www.nerdfonts.com/).*
 
----
-
-### 💻 Cómo configurarla correctamente
-
-#### En Visual Studio Code
-
-1. Ve a **Configuración** (`Ctrl + ,`).
+### ¿Qué pasa si no veo los iconos? (Configuración manual en VS Code)
+Si instalaste las fuentes pero VS Code aún no muestra los iconos correctamente, sigue estos pasos:
+1. Abre VS Code y ve a **Configuración** (`Ctrl + ,` o `Cmd + ,`).
 2. Escribe **terminal font** en el buscador.
 3. En la opción **Terminal > Integrated: Font Family**, escribe exactamente:
-
-```text
-'CaskaydiaCove Nerd Font'
+```json
+'FiraCode Nerd Font Mono'
 ```
 
-4. Reinicia la terminal integrada de VS Code.
-
----
-
-#### 🖥️ En Windows Terminal
-
-1. Abre **Windows Terminal** y presiona `Ctrl + ,` para abrir la configuración.
-2. En el panel izquierdo, selecciona **Valores predeterminados** (bajo **Perfiles**) o directamente tu perfil de **PowerShell**.
+### Configuración en Windows Terminal
+Si usas la aplicación *Windows Terminal* de Microsoft Store:
+1. Abre *Windows Terminal* y ve a **Configuración** (`Ctrl + ,`).
+2. Selecciona **Predeterminados** (o el perfil de PowerShell).
 3. Ve a la pestaña **Apariencia**.
 4. En **Fuente** (*Font Face*), selecciona:
-
-```text
-CaskaydiaCove Nerd Font
-```
+> FiraCode Nerd Font Mono
 
 5. Haz clic en **Guardar**.
 
